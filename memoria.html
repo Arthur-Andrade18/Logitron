@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10131d">
+  <title>Logitron</title>
+  <link rel="stylesheet" href="memoria.css">
+  <script src="memoria.js" defer></script>
+</head>
+<body>
+  <main class="game-shell">
+    <header class="game-header">
+      <p class="eyebrow">JOGO DE MEMÓRIA</p>
+      <h1>Logitron</h1>
+      <p class="intro">Encontre os pares de proposições logicamente equivalentes.</p>
+    </header>
+
+    <section class="game-panel" aria-label="Partida de memória lógica">
+      <div class="game-toolbar">
+        <div class="stats" aria-label="Estatísticas da partida">
+          <p>Jogadas <strong id="moves">0</strong></p>
+          <p>Pares <strong id="pairs">0 / 8</strong></p>
+          <p>Vez <strong id="turn-indicator">Jogador 1</strong></p>
+        </div>
+        <div class="toolbar-actions">
+          <button class="score-button" id="open-score" type="button">Pontuação</button>
+          <button class="reset-button" id="reset" type="button">Reiniciar partida</button>
+        </div>
+      </div>
+
+      <div class="players-panel" aria-label="Cronômetros dos jogadores">
+        <div class="player-card is-active" id="player-1-card" aria-label="Jogador 1">
+          <span class="player-name">Jogador 1</span>
+          <span class="player-score"><strong id="player-1-score">0</strong> pontos</span>
+          <strong id="player-1-time">03:00</strong>
+        </div>
+        <div class="player-card" id="player-2-card" aria-label="Jogador 2">
+          <span class="player-name">Jogador 2</span>
+          <span class="player-score"><strong id="player-2-score">0</strong> pontos</span>
+          <strong id="player-2-time">03:00</strong>
+        </div>
+      </div>
+
+      <p class="game-message" id="message" role="status" aria-live="polite">
+        Vire duas cartas e descubra se as proposições são equivalentes.
+      </p>
+      <div class="game-board" id="board" aria-label="Cartas do jogo"></div>
+    </section>
+
+    <aside class="rules">
+      <h2>Como jogar</h2>
+      <p>Combine cada proposição com outra que tenha o mesmo valor lógico para todas as interpretações. Exemplo: <code>p → q</code> equivale a <code>¬p ∨ q</code>.</p>
+    </aside>
+  </main>
+
+  <dialog class="score-dialog" id="score-dialog" aria-labelledby="score-title">
+    <div class="score-heading">
+      <div>
+        <p class="eyebrow">PARTIDA ATUAL</p>
+        <h2 id="score-title">Pontuação</h2>
+      </div>
+      <button class="score-close" id="close-score" type="button" aria-label="Fechar pontuação">×</button>
+    </div>
+    <div class="scoreboard" aria-label="Placar dos jogadores">
+      <section class="score-row" id="score-player-1">
+        <div>
+          <span>Jogador 1</span>
+          <strong id="score-1-points">0 pontos</strong>
+        </div>
+        <span id="score-1-time">03:00 restantes</span>
+      </section>
+      <section class="score-row" id="score-player-2">
+        <div>
+          <span>Jogador 2</span>
+          <strong id="score-2-points">0 pontos</strong>
+        </div>
+        <span id="score-2-time">03:00 restantes</span>
+      </section>
+    </div>
+    <div class="score-summary">
+      <p>Jogadas <strong id="score-moves">0</strong></p>
+      <p>Pares encontrados <strong id="score-pairs">0 / 8</strong></p>
+    </div>
+  </dialog>
+</body>
+</html>
